@@ -1,5 +1,4 @@
-flask==3.0.2
+streamlit
 tensorflow==2.15.0
 numpy
 pillow
-gunicorn
