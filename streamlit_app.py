@@ -1,6 +1,8 @@
 import streamlit as st
 import numpy as np
 from PIL import Image
+import os
+
 from tensorflow.keras.applications import MobileNetV2
 from tensorflow.keras import layers, models
 
@@ -28,7 +30,13 @@ def load_model():
         layers.Dense(7, activation='softmax')
     ])
 
-    model.load_weights("skin_weights.weights.h5")
+    # Load weights only if file exists
+    if os.path.exists("skin_weights.weights.h5"):
+        model.load_weights("skin_weights.weights.h5")
+        st.success("✅ Model weights loaded successfully.")
+    else:
+        st.warning("⚠️ skin_weights.weights.h5 not found. Running with random weights.")
+
     return model
 
 model = load_model()
