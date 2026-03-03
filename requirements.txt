@@ -1,5 +1,4 @@
-flask
-tensorflow
+gradio
+tensorflow==2.15.0
 numpy
-Pillow
-gunicorn
+pillow
